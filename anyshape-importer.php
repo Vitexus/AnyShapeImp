@@ -13,9 +13,9 @@
  * @package           Anyshape_Importer
  *
  * @wordpress-plugin
- * Plugin Name:       anyshapeimp
+ * Plugin Name:       AnyShape Importer
  * Plugin URI:        https://github.com/Vitexus/AnyShapeImp
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Import AnyShape database & files to WordPress
  * Version:           1.0.0
  * Author:            Vítězslav Dvořák
  * Author URI:        https://vitexsoftware.cz/
@@ -24,10 +24,9 @@
  * Text Domain:       anyshape-importer
  * Domain Path:       /languages
  */
-
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if (!defined('WPINC')) {
+    die;
 }
 
 /**
@@ -35,15 +34,15 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ANYSHAPE_IMPORTER_VERSION', '1.0.0' );
+define('ANYSHAPE_IMPORTER_VERSION', '1.0.0');
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-anyshape-importer-activator.php
  */
 function activate_anyshape_importer() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-anyshape-importer-activator.php';
-	Anyshape_Importer_Activator::activate();
+    require_once plugin_dir_path(__FILE__) . 'includes/class-anyshape-importer-activator.php';
+    Anyshape_Importer_Activator::activate();
 }
 
 /**
@@ -51,18 +50,18 @@ function activate_anyshape_importer() {
  * This action is documented in includes/class-anyshape-importer-deactivator.php
  */
 function deactivate_anyshape_importer() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-anyshape-importer-deactivator.php';
-	Anyshape_Importer_Deactivator::deactivate();
+    require_once plugin_dir_path(__FILE__) . 'includes/class-anyshape-importer-deactivator.php';
+    Anyshape_Importer_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_anyshape_importer' );
-register_deactivation_hook( __FILE__, 'deactivate_anyshape_importer' );
+register_activation_hook(__FILE__, 'activate_anyshape_importer');
+register_deactivation_hook(__FILE__, 'deactivate_anyshape_importer');
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-anyshape-importer.php';
+require plugin_dir_path(__FILE__) . 'includes/class-anyshape-importer.php';
 
 /**
  * Begins execution of the plugin.
@@ -75,8 +74,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-anyshape-importer.php';
  */
 function run_anyshape_importer() {
 
-	$plugin = new Anyshape_Importer();
-	$plugin->run();
-
+    $plugin = new Anyshape_Importer();
+    $plugin->run();
 }
+
 run_anyshape_importer();
